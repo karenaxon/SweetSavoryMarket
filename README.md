@@ -41,7 +41,7 @@ This application keeps track of a market's sweet and savory treats with a many-t
 
 ## Setting up the database
 
-![Alt text](SweetSavory/../wwwroot/images/db.schema.jpg?raw=true "Title")
+![Alt text](SweetSavory/wwwroot/images/db.schema.jpg?raw=true "Title")
 
 After following the Setup/Installation steps above:
 
