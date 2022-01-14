@@ -1,0 +1,19 @@
+@using SweetSavory.Models;
+@model IEnumerable<SweetSavory.Models.Treat>
+
+<h2 class="mt-4 mb-4 text-center">Treats</h2>
+<hr />
+
+@if (!Model.Count == 0)
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li><h5>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</h5></li>
+    }
+  </ul>
+}
+else 
+{
+  <h5>No treats have been added yet!</h5>
+}
