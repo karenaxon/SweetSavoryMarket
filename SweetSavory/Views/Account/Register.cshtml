@@ -2,7 +2,7 @@
 
 @model RegisterViewModel
 
-<h2 class="mt-4 mb-4 text-center">Create an Account</h2>
+<h2 class="mt-5 mb-4 text-center">Create an Account</h2>
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
@@ -24,5 +24,5 @@
     @Html.LabelFor(user=> user.ConfirmPassword, new {@class = "form-label"})
     @Html.PasswordFor(user=> user.ConfirmPassword, new {@class = "form-control mb-3",required = "required"})
 
-    <button  class="btn btn-secondary" type="submit" value="Register">Submit</button>
+    <button class="btn btn-primary mt-2" type="submit" value="Register">Submit</button>
 }
