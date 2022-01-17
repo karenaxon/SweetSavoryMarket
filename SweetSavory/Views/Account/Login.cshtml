@@ -1,0 +1,18 @@
+@using SweetSavory.ViewModels;
+@model LoginViewModel
+
+<h2 class="mt-4 mb-4 text-center">Log into your account</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.UserName, new {@class = "form-label"})
+  @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", required = "required"})
+
+  @Html.LabelFor(m => m.Password, new {@class = "form-label"})
+  @Html.TextBoxFor(m => m.Password, new {@class = "form-control", required = "required"})
+
+  <button type="submit" value="Log in" class="btn btn-default">Submit</button>
+}
+
+<p class="h5 mt-5">@Html.ActionLink("Create New Account", "Register", "Account")</p>
