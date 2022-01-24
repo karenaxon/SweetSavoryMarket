@@ -15,6 +15,21 @@
         <li class="nav-item">
           @Html.ActionLink("Flavors", "Index", "Flavors", new {@class="nav-link"})
         </li>
+        @if (User.Identity.IsAuthenticated)
+        {
+          <li class="navbar-nav">
+            @Html.ActionLink("Logout", "Logout", "Account")
+          </li>
+        }
+        else
+        {
+          <li class="navbar-nav">
+            @Html.ActionLink("Login", "Login", "Account")
+          </li>
+          <li class="navbar-nav">
+            @Html.ActionLink("Create Account", "Register", "Account")
+          </li>
+        }
       </ul>
     </div>
   </div>

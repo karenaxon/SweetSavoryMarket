@@ -1,16 +1,11 @@
-@using System.Security.Claims
+@using System.Security.Claims;
 
 @if(User.Identity.IsAuthenticated)
 {
-  <h5>Hello @User.Identity.Name!</h5>
+  <h5 class="h5 mt-5">Hello @User.Identity.Name!</h5>
 }
 else
 {
-  <h5 class="h5 mt-5">Please create an account first.</h5>
+  <h5 class="h5 mt-5">Please Create an Account.</h5>
   <p class="h5 mt-2">@Html.ActionLink("Register", "Register")</p>
-}
-
-@if (User.Identity.IsAuthenticated)
-{
-  <h5 class="h5 mt-5">Hello @User.Identity.Name!</h5>
 }

@@ -6,11 +6,11 @@
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    @Html.LabelFor(user => user.FirstName, new {@class = "form-label"})
+    @* @Html.LabelFor(user => user.FirstName, new {@class = "form-label"})
     @Html.TextBoxFor(user => user.FirstName, new {@class = "form-control mb-3", required = "required"})
 
     @Html.LabelFor(user => user.LastName, new {@class = "form-label"})
-    @Html.TextBoxFor(user => user.LastName, new {@class = "form-control mb-3", required = "required"})
+    @Html.TextBoxFor(user => user.LastName, new {@class = "form-control mb-3", required = "required"}) *@
 
     @Html.LabelFor(user => user.Email, new {@class = "form-label"})
     @Html.TextBoxFor(user => user.Email, new {@class = "form-control mb-3", required = "required"})
@@ -21,8 +21,8 @@
     @Html.LabelFor(user=> user.Password, new {@class = "form-label"})
     @Html.PasswordFor(user=> user.Password, new {@class = "form-control mb-3",required = "required"})
 
-    @Html.LabelFor(user=> user.ConfirmPassword, new {@class = "form-label"})
-    @Html.PasswordFor(user=> user.ConfirmPassword, new {@class = "form-control mb-3",required = "required"})
+    @* @Html.LabelFor(user=> user.ConfirmPassword, new {@class = "form-label"})
+    @Html.PasswordFor(user=> user.ConfirmPassword, new {@class = "form-control mb-3",required = "required"}) *@
 
     <button class="btn btn-primary mt-2" type="submit" value="Register">Submit</button>
 }

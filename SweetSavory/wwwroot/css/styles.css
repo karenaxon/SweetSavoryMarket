@@ -1,4 +1,8 @@
-#navbarNav ul li a{
+body {
+  height: auto;
+}
+
+#navbarNav ul li a {
   color: white;
-  margin-right: 6px;
+  margin-right: 14px;
 }
