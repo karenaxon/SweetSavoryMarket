@@ -1,3 +1,4 @@
+using System.Threading.Tasks.Dataflow;
 using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -50,6 +51,15 @@ namespace SweetSavory.Controllers
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      var thisFlavor = _db.Flavors
+          .Include(flavor => flavor.JoinEntities)
+          .ThenInclude(join => join.Treat)
+          .FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
 
   }

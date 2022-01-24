@@ -1,0 +1,21 @@
+@model SweetSavory.Models.Flavor
+
+<h2 class="mt-5 mb-4 text-center">Flavor Details</h2>
+<hr />
+
+<h5 class="mt-3">@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <h5 class="mt-3">This flavor isn't associated with any treats.</h5>
+}
+else
+{
+  <h5 class="mt-3">The following treats come in this flavor:</h5>
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <h5><li>@join.Treat.Name</li></h5>
+    }
+  </ul>
+}
