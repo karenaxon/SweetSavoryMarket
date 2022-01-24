@@ -34,7 +34,8 @@ namespace SweetSavory.Controllers
     [HttpPost]
     public async Task<ActionResult> Register (RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.UserName };
+      var user = new ApplicationUser { UserName = model.UserName, Email = model.Email};
+
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
@@ -64,6 +65,17 @@ namespace SweetSavory.Controllers
         return View("Register");
       }
     }
-    
+
+    public ActionResult Logout()
+    {
+      return View();
+    }
+
+    [HttpPost, ActionName("Logout")]
+    public async Task<ActionResult> LogOffConfirmed()
+    {
+      await _signInManager.SignOutAsync();
+      return RedirectToAction("Index");
+    }
   }
 }
