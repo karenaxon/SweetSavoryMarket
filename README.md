@@ -63,10 +63,7 @@ After following the Setup/Installation steps above:
   }
 }
 ```
-* In the root directory run these commands:
-  - _dotnet ef migrations add Initial_
-  - _dotnet ef migrations add addIdentity_
-  - _dotnet ef database update_
+* In the root directory run the command _dotnet ef database update_.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
