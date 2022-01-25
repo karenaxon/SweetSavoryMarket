@@ -1,0 +1,14 @@
+@model SweetSavory.Models.Flavor
+
+<h2 class="mt-5 mb-4 text-center">Edit @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+
+  <input type="submit" value="Save" />
+
+}
