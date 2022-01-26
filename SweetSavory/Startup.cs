@@ -50,12 +50,10 @@ namespace SweetSavory
     {
       app.UseDeveloperExceptionPage();
 
-      //new code
       app.UseAuthentication(); 
 
       app.UseRouting();
 
-      //new code
       app.UseAuthorization();
 
       app.UseEndpoints(routes =>
@@ -67,7 +65,7 @@ namespace SweetSavory
 
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Oops! Something went wrong.");
+        await context.Response.WriteAsync("Hello World!");
       });
     }
   }
