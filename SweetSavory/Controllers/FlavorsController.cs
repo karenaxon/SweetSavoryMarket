@@ -1,6 +1,3 @@
-using System.Threading.Tasks.Dataflow;
-using System.Net.Mime;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using SweetSavory.Models;
@@ -31,17 +28,14 @@ namespace SweetSavory.Controllers
     }
 
     [Authorize]
-    public ActionResult Create ()
+    public ActionResult Create()
     {
       return View();
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Flavor flavor)
+    public ActionResult Create(Flavor flavor)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      flavor.User = currentUser;
       _db.Flavors.Add(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -64,11 +58,8 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Edit(Flavor flavor)
+    public ActionResult Edit(Flavor flavor)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      flavor.User = currentUser;
       _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -82,14 +73,12 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost, ActionName("Delete")]
-    async Task<ActionResult> DeleteConfirmed(int id)
+    public ActionResult DeleteConfirmed(int id)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       _db.Flavors.Remove(thisFlavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
   }
+}
