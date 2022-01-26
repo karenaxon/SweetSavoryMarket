@@ -1,20 +1,18 @@
 @using SweetSavory.Models;
 
-<h2 class="mt-5 mb-4 text-center">The List of Flavors</h2>
-<hr />
+<h1>Flavors</h1>
 
 @if (@Model.Count == 0)
 {
-  <h5>No flavors have been added yet! Please login to create new flavors.</h5>
+  <h3>No flavors have been added yet!</h3>
 } 
 
 <ul>
   @foreach(Flavor flavor in Model)
   {
-    <li><h5>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</h5></li>
+    <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
   }
 </ul>
 
-<p class="h5 mt-5">@Html.ActionLink("Add a Flavor", "Create")</p>
-<p class="h5 mt-2">@Html.ActionLink("Login", "Login", "Account")</p>
-<p class="h5 mt-2">@Html.ActionLink("Create an Account", "Register", "Account")</p>
+<p>@Html.ActionLink("Add new flavor", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

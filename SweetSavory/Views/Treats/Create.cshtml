@@ -1,14 +1,15 @@
 @model SweetSavory.Models.Treat
 
-<h2 class="mt-5 mb-4 text-center">Add a New Treat</h2>
-<hr />
+<h4>Add a new Treat</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name, new { @class = "form-label" })
-  @Html.TextBoxFor(model => model.Name, new { @class = "form-control", required = "required"})
-  <br>
-  <button class="btn btn-primary" type="submit" value="Add new treat">Submit</button>
-}
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
 
-<p class="h5 mt-5">@Html.ActionLink("Show all Treats", "Index")</p>
+    @Html.Label("Select Flavor")
+    @Html.DropDownList("FlavorId")
+
+    <input type="submit" value="Add new item" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all treats", "Index")</p>

@@ -1,24 +1,24 @@
 @model SweetSavory.Models.Flavor
 
-<h2 class="mt-5 mb-4 text-center">Flavor Details</h2>
+<h2>Flavor Details</h2>
 <hr />
-
-<h5 class="mt-3">@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <h5 class="mt-3">This flavor isn't associated with any treats.</h5>
+  <p>This flavor does not contain any treats</p>
 }
 else
 {
-  <h5 class="mt-3">The following treats come in this flavor:</h5>
+  <h4>Treats the flavor contains:</h4>
   <ul>
-    @foreach(var join in Model.JoinEntities)
-    {
-      <h5><li>@join.Treat.Name</li></h5>
-    }
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Treat.Description</li>
+  }
   </ul>
 }
 
-<p class="h5 mt-5">@Html.ActionLink("Edit Flavor", "Edit")</p>
-<p class="h5 mt-5">@Html.ActionLink("Delete Flavor", "Delete")</p>
+<p>@Html.ActionLink("Back to flavors", "Index")</p>
+<p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
