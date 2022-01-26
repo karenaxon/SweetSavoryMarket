@@ -9,7 +9,7 @@ namespace SweetSavory.Models
     public DbSet<Treat> Treats { get; set; }
     public DbSet<FlavorTreat> FlavorTreat { get; set; }
 
-    public SweetSavoryContext(DbContextOptions options) : base(options){ }
+    public SweetSavoryContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
