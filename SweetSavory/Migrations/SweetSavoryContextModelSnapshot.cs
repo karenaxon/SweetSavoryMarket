@@ -218,12 +218,7 @@ namespace SweetSavory.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
                     b.HasKey("FlavorId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Flavors");
                 });
@@ -255,7 +250,7 @@ namespace SweetSavory.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserId")
@@ -317,15 +312,6 @@ namespace SweetSavory.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SweetSavory.Models.Flavor", b =>
-                {
-                    b.HasOne("SweetSavory.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SweetSavory.Models.FlavorTreat", b =>
